@@ -1,0 +1,8 @@
+[
+  {
+    "name": "core bundle",
+    "path": "dist/pqdate.umd.js",
+    "limit": "20 KB",
+    "gzip": true
+  }
+]

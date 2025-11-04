@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>pqDate UMD Example</title>
+  </head>
+  <body>
+    <h1>pqDate UMD</h1>
+    <script src="../../dist/pqdate.umd.js"></script>
+    <script>
+      const d = pqDate.parseISO("2025-01-31T00:00:00Z");
+      const n = pqDate.add(d, { months: 1 });
+      console.log(pqDate.formatISO(n)); // 2025-02-28T00:00:00.000Z
+      const local = pqDate.formatLocal(n, { locale: 'es-ES', dateStyle: 'medium' });
+      console.log(local);
+    </script>
+  </body>
+  </html>

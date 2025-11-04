@@ -1,0 +1,30 @@
+{
+  "files": [],
+  "compilerOptions": {
+    "composite": false,
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2020", "DOM"],
+    "strict": true,
+    
+    "sourceMap": true,
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@pqdate/core": ["packages/core/src/index.ts"],
+      "@pqdate/intl": ["packages/intl/src/index.ts"],
+      "@pqdate/rules": ["packages/rules/src/index.ts"]
+    },
+    "noEmit": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "useDefineForClassFields": true
+  },
+  "include": [
+    "src",
+    "packages",
+    "tests"
+  ]
+}

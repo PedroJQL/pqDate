@@ -1,0 +1,46 @@
+{
+  "name": "pqdate",
+  "version": "0.1.0",
+  "private": true,
+  "description": "pqDate - Minimal, predictable, UTC-first date library (monorepo)",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs,iife --global-name pqDate --dts --sourcemap --minify --out-dir dist && node ./scripts/postbuild.mjs",
+    "build:watch": "npm run build -- --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "size": "size-limit",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "date",
+    "utc",
+    "typescript",
+    "library",
+    "i18n"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@size-limit/file": "^11.2.0",
+    "size-limit": "^11.1.4",
+    "tsup": "^8.1.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "unpkg": "./dist/pqdate.umd.js"
+}
