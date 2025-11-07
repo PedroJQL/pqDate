@@ -1,0 +1,75 @@
+{
+  "name": "pqdate",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Minimal, predictable, UTC-first date library",
+  "author": "Tu Nombre <tu@email.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tu-usuario/pqdate.git"
+  },
+  "homepage": "https://github.com/tu-usuario/pqdate#readme",
+  "bugs": {
+    "url": "https://github.com/tu-usuario/pqdate/issues"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs,iife --global-name pqDate --dts --sourcemap --minify --out-dir dist && node ./scripts/postbuild.mjs",
+    "build:watch": "npm run build -- --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "size": "size-limit",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run size",
+    "preversion": "npm test",
+    "version": "npm run build",
+    "postversion": "git push && git push --tags"
+  },
+  "keywords": [
+    "date",
+    "utc",
+    "typescript",
+    "library",
+    "i18n",
+    "date-manipulation",
+    "immutable",
+    "timezone",
+    "iso8601"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "unpkg": "./dist/pqdate.umd.js",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@size-limit/file": "^11.2.0",
+    "size-limit": "^11.1.4",
+    "tsup": "^8.1.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  }
+}
+
+
+

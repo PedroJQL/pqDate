@@ -1,0 +1,58 @@
+# Archivos y directorios a EXCLUIR de la publicación en npm
+
+# Fuentes TypeScript (solo se publica el build)
+src/
+packages/
+tests/
+examples/
+
+# Configuración de desarrollo
+*.config.ts
+*.config.js
+*.config.mjs
+tsconfig.json
+vitest.config.ts
+.size-limit.json
+
+# Herramientas y scripts
+scripts/
+node_modules/
+
+# Archivos de desarrollo
+.git/
+.gitignore
+.editorconfig
+.eslintrc*
+.prettierrc*
+*.log
+*.md
+!README.md
+
+# Archivos temporales
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build intermedio (solo se publica dist/)
+*.tsbuildinfo
+
+# Coverage y testing
+coverage/
+.nyc_output/
+
+# Archivos de CI/CD
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+
+
+

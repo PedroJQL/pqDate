@@ -20,6 +20,8 @@ declare function startOf(d: Date, unit: 'day' | 'month' | 'year'): Date;
 declare function endOf(d: Date, unit: 'day' | 'month' | 'year'): Date;
 declare function isBefore(a: Date, b: Date): boolean;
 declare function isAfter(a: Date, b: Date): boolean;
+declare function isSame(a: Date, b: Date, unit: 'day' | 'month' | 'year'): boolean;
+declare function differenceInDays(a: Date, b: Date): number;
 declare function isWithinInterval(d: Date, itv: {
     start: Date;
     end: Date;
@@ -36,4 +38,4 @@ declare function formatLocal(d: Date, opts?: LocalFormatOptions): string;
 
 declare function lastBusinessDayOfMonth(d: Date): Date;
 
-export { type Duration, type LocalFormatOptions, PqDateError, type PqErrorCode, type PqLocale, add, assertValid, endOf, formatISO, formatLocal, isAfter, isBefore, isWithinInterval, lastBusinessDayOfMonth, parseISO, startOf, sub, toLocal };
+export { type Duration, type LocalFormatOptions, PqDateError, type PqErrorCode, type PqLocale, add, assertValid, differenceInDays, endOf, formatISO, formatLocal, isAfter, isBefore, isSame, isWithinInterval, lastBusinessDayOfMonth, parseISO, startOf, sub, toLocal };

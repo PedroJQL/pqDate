@@ -1,7 +1,7 @@
 {
   "name": "pqdate",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
   "description": "pqDate - Minimal, predictable, UTC-first date library (monorepo)",
   "workspaces": [
     "packages/*"
@@ -21,8 +21,14 @@
     "library",
     "i18n"
   ],
-  "author": "",
+  "author": "Pedro Quiñonez <pedrojosezx368@gmail.com>",
   "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
   "devDependencies": {
     "@size-limit/file": "^11.2.0",
     "size-limit": "^11.1.4",
@@ -42,5 +48,6 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "unpkg": "./dist/pqdate.umd.js"
 }

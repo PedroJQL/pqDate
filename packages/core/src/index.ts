@@ -159,6 +159,21 @@ export function isAfter(a: Date, b: Date): boolean {
   return a.getTime() > b.getTime();
 }
 
+// RF-06 equality helpers
+export function isSame(a: Date, b: Date, unit: 'day'|'month'|'year'): boolean {
+  assertValid(a); assertValid(b);
+  return startOf(a, unit).getTime() === startOf(b, unit).getTime();
+}
+
+// RF-06 difference helpers
+export function differenceInDays(a: Date, b: Date): number {
+  assertValid(a); assertValid(b);
+  const a0 = startOf(a, 'day').getTime();
+  const b0 = startOf(b, 'day').getTime();
+  const MS_PER_DAY = 24 * 3600 * 1000;
+  return Math.round((a0 - b0) / MS_PER_DAY);
+}
+
 export function isWithinInterval(d: Date, itv: {start: Date; end: Date;}): boolean {
   assertValid(d);
   assertValid(itv?.start as Date);

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseISO, formatISO, add, sub, startOf, endOf, isBefore, isAfter, isWithinInterval, assertValid, toLocal, PqDateError } from '../packages/core/src/index';
+import { parseISO, formatISO, add, sub, startOf, endOf, isBefore, isAfter, isWithinInterval, assertValid, toLocal, PqDateError, differenceInDays, isSame } from '../packages/core/src/index';
 
 describe('RF-01 — Parse y formato ISO', () => {
   it('parseISO debe aceptar ISO y formatISO debe devolver ISO', () => {
@@ -86,6 +86,24 @@ describe('RF-07 — Validación y seguridad', () => {
     } catch (e: any) {
       expect(e.code).toBe('E_PARSE_INVALID');
     }
+  });
+});
+
+describe('RF-06 — Utilidades de igualdad y diferencias', () => {
+  it('differenceInDays usa truncado a inicio de día UTC y redondeo al entero', () => {
+    const a = parseISO('2025-03-02T10:00:00Z');
+    const b = parseISO('2025-03-01T23:59:59Z');
+    expect(differenceInDays(a, b)).toBe(1);
+    expect(differenceInDays(b, a)).toBe(-1);
+  });
+  it('isSame compara por unidad en UTC', () => {
+    const a = parseISO('2025-03-15T00:00:00Z');
+    const b = parseISO('2025-03-15T23:59:59Z');
+    const c = parseISO('2025-03-16T00:00:00Z');
+    expect(isSame(a, b, 'day')).toBe(true);
+    expect(isSame(a, c, 'day')).toBe(false);
+    expect(isSame(parseISO('2025-03-01T00:00:00Z'), parseISO('2025-03-31T00:00:00Z'), 'month')).toBe(true);
+    expect(isSame(parseISO('2025-01-01T00:00:00Z'), parseISO('2025-12-31T00:00:00Z'), 'year')).toBe(true);
   });
 });
 
