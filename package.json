@@ -1,6 +1,6 @@
 {
   "name": "pqdate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "pqDate - Minimal, predictable, UTC-first date library (monorepo)",
   "workspaces": [
